@@ -5,7 +5,7 @@ NEXMON_FW_VERSION_NUM=`$(NEXMON_ROOT)/buildtools/scripts/getdefine.sh $(NEXMON_F
 
 NEXMON_ARCH=armv7-r
 
-RAM_FILE=brcmfmac43455-sdio.bin
+RAM_FILE=brcmfmac43455-sdio-monitor-mode.bin
 RAMSTART=0x198000
 RAMSIZE=0xC8000
 
