@@ -10,8 +10,10 @@ ccflags-y += \
 	-I$(NEXMON_ROOT)/patches/driver/brcmfmac_5.15.y-nexmon/include \
 	-DDEBUG
 
-obj-$(CONFIG_BRCMFMAC) += brcmfmac.o 
-brcmfmac-objs += \
+MODULENAME = brcmfmac-monitor-mode
+
+obj-$(CONFIG_BRCMFMAC) += $(MODULENAME).o
+$(MODULENAME)-objs += \
 		cfg80211.o \
 		chip.o \
 		fwil.o \
@@ -26,25 +28,25 @@ brcmfmac-objs += \
 		vendor.o \
 		pno.o \
 		xtlv.o
-brcmfmac-$(CONFIG_BRCMFMAC_PROTO_BCDC) += \
+$(MODULENAME)-$(CONFIG_BRCMFMAC_PROTO_BCDC) += \
 		bcdc.o \
 		fwsignal.o
-brcmfmac-$(CONFIG_BRCMFMAC_PROTO_MSGBUF) += \
+$(MODULENAME)-$(CONFIG_BRCMFMAC_PROTO_MSGBUF) += \
 		commonring.o \
 		flowring.o \
 		msgbuf.o
-brcmfmac-$(CONFIG_BRCMFMAC_SDIO) += \
+$(MODULENAME)-$(CONFIG_BRCMFMAC_SDIO) += \
 		sdio.o \
 		bcmsdh.o
-brcmfmac-$(CONFIG_BRCMFMAC_USB) += \
+$(MODULENAME)-$(CONFIG_BRCMFMAC_USB) += \
 		usb.o
-brcmfmac-$(CONFIG_BRCMFMAC_PCIE) += \
+$(MODULENAME)-$(CONFIG_BRCMFMAC_PCIE) += \
 		pcie.o
-brcmfmac-$(CONFIG_BRCMDBG) += \
+$(MODULENAME)-$(CONFIG_BRCMDBG) += \
 		debug.o
-brcmfmac-$(CONFIG_BRCM_TRACING) += \
+$(MODULENAME)-$(CONFIG_BRCM_TRACING) += \
 		tracepoint.o
-brcmfmac-$(CONFIG_OF) += \
+$(MODULENAME)-$(CONFIG_OF) += \
 		of.o
-brcmfmac-$(CONFIG_DMI) += \
+$(MODULENAME)-$(CONFIG_DMI) += \
 		dmi.o
